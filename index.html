@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Карта событий</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <style>
+    html, body { margin: 0; height: 100%; font-family: -apple-system, sans-serif; }
+    #map { position: absolute; inset: 0; }
+
+    #panel {
+      position: absolute; top: 10px; right: 10px; z-index: 1000;
+      background: rgba(20,20,25,.92); color: #eee;
+      padding: 12px 14px; border-radius: 8px; width: 210px;
+      max-height: 80vh; overflow-y: auto;
+    }
+    #panel.hidden { display: none; }
+    #panel h3 { margin: 0 0 8px; font-size: 14px; }
+    #panel select { width: 100%; margin-bottom: 10px; padding: 4px; }
+    #panel label { display: block; font-size: 13px; margin: 4px 0; cursor: pointer; }
+    .swatch { display: inline-block; width: 20px; text-align: center; }
+    #updated { font-size: 11px; color: #999; margin-top: 10px; }
+
+    #toggle {
+      position: absolute; top: 10px; right: 10px; z-index: 1001;
+      background: rgba(20,20,25,.92); color: #eee; border: none;
+      padding: 8px 12px; border-radius: 8px; font-size: 16px;
+    }
+    @media (min-width: 601px) { #toggle { display: none; } }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <button id="toggle">&#9998;</button>
+  <div id="panel">
+    <h3>Карта событий</h3>
+    <select id="dateSelect"></select>
+    <div id="filters"></div>
+    <div id="updated"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
